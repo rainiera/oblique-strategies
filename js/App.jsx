@@ -1,8 +1,13 @@
-import React from "react"
+import React from 'react'
+import Container from 'bloomer'
+import TopBar from './TopBar'
+import StrategyCard from './StrategyCard'
 
 export default class App extends React.Component {
   render() {
-    return (<TopBar></TopBar>
-    <StrategyCard></StrategyCard>)
+    return (<div>
+      <TopBar/>
+      <StrategyCard/>
+    </div>)
   }
 }

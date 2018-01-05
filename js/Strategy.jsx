@@ -5,8 +5,6 @@ function getRandStratIdx() {
   return Math.floor(Math.random() * strategies.length)
 }
 
-const Strategy = (props) => (
-  strategies[getRandStratIdx()]
-);
+const Strategy = (props) => (strategies[getRandStratIdx()]);
 
 export default Strategy;
