@@ -72,7 +72,7 @@ export default class TopBar extends React.Component {
         </LevelRight>
       </Level>
       <Modal isActive={this.state.showAboutModal}>
-        <AboutModalContent hideModal={this.deleteIconClickHandler}/>
+        <AboutModalContent hideAboutModal={this.deleteIconClickHandler}/>
       </Modal>
     </div>);
   }
