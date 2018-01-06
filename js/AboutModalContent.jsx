@@ -23,7 +23,7 @@ export default function AboutModalContent(props) {
             remark which can be used to break a creative deadlock or dilemma situation.
             This website presents a random Oblique Strategy selected from editions 1–5.
             <br/><br/>
-            Created by <a href='http://rainier.io/' target='_blank'>Rainier Ababao</a>
+            Website by <a href='http://rainier.io/' target='_blank'>Rainier</a>
           </MediaContent>
           <MediaRight>
             <Delete onClick={props.hideAboutModal}/>

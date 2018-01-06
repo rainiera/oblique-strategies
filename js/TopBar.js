@@ -15,32 +15,32 @@ export default class TopBar extends React.Component {
     this.state = {
       showAboutModal: false
     }
-    this.questionIconClickHandler = this.questionIconClickHandler.bind(this);
-    this.escPressHandler = this.escPressHandler.bind(this);
-    this.deleteIconClickHandler = this.deleteIconClickHandler.bind(this);
+    this.onQuestionIconClick = this.onQuestionIconClick.bind(this);
+    this.onEscPress = this.onEscPress.bind(this);
+    this.onDeleteIconClick = this.onDeleteIconClick.bind(this);
   }
 
   componentDidMount() {
-    document.addEventListener('keydown', this.escPressHandler, false);
+    document.addEventListener('keydown', this.onEscPress, false);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('keydown', this.escPressHandler, false);
+    document.removeEventListener('keydown', this.onEscPress, false);
   }
 
-  escPressHandler(e) {
+  onEscPress(e) {
     if (e.keyCode === 27) {
       this.setState({showAboutModal: false});
     }
   }
 
-  questionIconClickHandler(e) {
+  onQuestionIconClick(e) {
     this.setState({
       showAboutModal: !this.state.showAboutModal
     });
   }
 
-  deleteIconClickHandler(e) {
+  onDeleteIconClick(e) {
     this.setState({showAboutModal: false});
   }
 
@@ -56,25 +56,29 @@ export default class TopBar extends React.Component {
         </LevelLeft>
         <LevelRight>
           <LevelItem>
-            <a href="#" onClick={this.questionIconClickHandler}>
+            <a href="#" onClick={this.onQuestionIconClick}>
               <i className="fa fa-question-circle fa-2x" aria-hidden="true"></i>
             </a>
             {'\u00A0'}
             {'\u00A0'}
-            <i className="fa fa-paint-brush fa-2x" aria-hidden="true"></i>
+            <a href="#" onClick={this.props.onPaintIconClick}>
+              <i className="fa fa-paint-brush fa-2x" aria-hidden="true"></i>
+            </a>
             {'\u00A0'}
             {'\u00A0'}
-            <a href="#" onClick={this.fontIconClickHandler}>
+            <a href="#" onClick={this.props.onFontIconClick}>
               <i className="fa fa-font fa-2x" aria-hidden="true"></i>
             </a>
             {'\u00A0'}
             {'\u00A0'}
-            <i className="fa fa-random fa-2x" aria-hidden="true"></i>
+            <a href="#" onClick={this.props.onShuffleIconClick}>
+              <i className="fa fa-random fa-2x" aria-hidden="true"></i>
+            </a>
           </LevelItem>
         </LevelRight>
       </Level>
       <Modal isActive={this.state.showAboutModal}>
-        <AboutModalContent hideAboutModal={this.deleteIconClickHandler}/>
+        <AboutModalContent hideAboutModal={this.onDeleteIconClick}/>
       </Modal>
     </div>);
   }

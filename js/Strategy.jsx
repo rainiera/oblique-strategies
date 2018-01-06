@@ -1,10 +1,8 @@
 import React from "react";
 import strategies from "./StrategyList"
 
-function getRandStratIdx() {
-  return Math.floor(Math.random() * strategies.length)
+export default function Strategy(props) {
+  return (<div style={props.textStyle} className={'is-size-4'}>
+    {strategies[props.strategyIdx]}
+  </div>);
 }
-
-const Strategy = (props) => (strategies[getRandStratIdx()]);
-
-export default Strategy;

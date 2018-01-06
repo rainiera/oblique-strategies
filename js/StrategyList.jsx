@@ -1,3 +1,11 @@
+/**
+* Strategies credit:
+* http://www.rtqe.net/ObliqueStrategies/Ed1.html
+* http://www.rtqe.net/ObliqueStrategies/Ed2.html
+* http://www.rtqe.net/ObliqueStrategies/Ed3.html
+* http://www.rtqe.net/ObliqueStrategies/Ed4.html
+**/
+
 const strategies = [
   "[blank card]",
   "(Organic) machinery",
@@ -171,7 +179,7 @@ const strategies = [
   "Tidy up",
   "Towards the insignificant",
   "Trust in the you of now",
-  "Try faking it",
+  "Try faking it (from Stewart Brand)",
   "Turn it upside down",
   "Twist the spine",
   "Use 'unqualified' people",

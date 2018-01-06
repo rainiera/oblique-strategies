@@ -22,6 +22,9 @@ const config = {
       }, {
         test: /\.(png|svg|jpg|gif)$/,
         use: 'file-loader'
+      }, {
+        test: /\.scss$/,
+        loaders: ["style", "css", "sass"]
       }
     ]
   },
