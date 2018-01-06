@@ -29,7 +29,6 @@ export default class App extends React.Component {
 
   componentDidMount() {
     this.myShakeEvent.start();
-    alert('seismograph has begun logging')
     document.addEventListener('shake', this.onShake, false);
   }
 
@@ -61,7 +60,6 @@ export default class App extends React.Component {
   }
 
   onShake(e) {
-    alert('is that an earthquake or something?')
     this.setState({
       strategyIdx: Math.floor(Math.random() * strategies.length)
     });
