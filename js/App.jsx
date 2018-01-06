@@ -51,6 +51,7 @@ export default class App extends React.Component {
       <div className={'hero-body'}>
         <div className={'container'}>
           <TopBar
+            textStyle={this.state.textStyle}
             onPaintIconClick={this.onPaintIconClick}
             onFontIconClick={this.onFontIconClick}
             onShuffleIconClick={this.onShuffleIconClick} />

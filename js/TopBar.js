@@ -50,7 +50,7 @@ export default class TopBar extends React.Component {
         <LevelLeft>
           <LevelItem>
             <Subtitle tag='p' isSize={2}>
-              <strong>oblique strategies</strong>
+              <strong style={this.props.textStyle}>oblique strategies</strong>
             </Subtitle>
           </LevelItem>
         </LevelLeft>
