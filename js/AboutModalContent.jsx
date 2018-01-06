@@ -10,32 +10,26 @@ import {
   ModalClose
 } from 'bloomer'
 
-export default class AboutModalContent extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (<div>
-      <ModalBackground/>
-      <ModalContent>
-        <Box>
-          <Media>
-            <MediaContent>
-              Oblique Strategies, originally presented as a pack of cards, were
-              by Brian Eno and Peter Schmidt. Each Oblique Strategy is a phrase
-              or cryptic remark which can be used to break a creative deadlock
-              or dilemma situation. This website presents a random Oblique
-              Strategy selected from editions 1–5.
-              <br/><br/>
-              Created by <a href='http://rainier.io/' target='_blank'>Rainier Ababao</a>
-            </MediaContent>
-            <MediaRight>
-              <Delete onClick={this.props.hideAboutModal}/>
-            </MediaRight>
-          </Media>
-        </Box>
-      </ModalContent>
-    </div>);
-  }
+export default function AboutModalContent(props) {
+  // Description credit: http://www.joshharrison.net/oblique-strategies/
+  return (<div>
+    <ModalBackground onClick={props.hideAboutModal}/>
+    <ModalContent>
+      <Box>
+        <Media>
+          <MediaContent className={'has-text-justified'}>
+            Oblique Strategies, originally presented as a pack of cards, were by
+            Brian Eno and Peter Schmidt. Each Oblique Strategy is a phrase or cryptic
+            remark which can be used to break a creative deadlock or dilemma situation.
+            This website presents a random Oblique Strategy selected from editions 1–5.
+            <br/><br/>
+            Created by <a href='http://rainier.io/' target='_blank'>Rainier Ababao</a>
+          </MediaContent>
+          <MediaRight>
+            <Delete onClick={props.hideAboutModal}/>
+          </MediaRight>
+        </Media>
+      </Box>
+    </ModalContent>
+  </div>);
 }
