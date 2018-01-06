@@ -5,6 +5,8 @@ import StrategyCard from './StrategyCard'
 import strategies from './StrategyList'
 import {fontFamilies, classNames} from './StyleConstants'
 
+const Shake = require('shake.js');
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -19,11 +21,24 @@ export default class App extends React.Component {
     this.onFontIconClick = this.onFontIconClick.bind(this);
     this.onShuffleIconClick = this.onShuffleIconClick.bind(this);
     this.sectionClassNames = ['hero', 'is-medium', 'is-fullheight', 'is-bold'];
+    this.myShakeEvent = new Shake({
+      threshold: 15,
+      timeout: 500
+    });
+  }
+
+  componentDidMount() {
+    this.myShakeEvent.start();
+    document.addEventListener('shake', this.onShake, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('shake', this.onShake, false);
+    this.myShakeEvent.stop();
   }
 
   onPaintIconClick(e) {
     let currBackgroundClassNameIdx = classNames.indexOf(this.state.backgroundClassName);
-    console.log(currBackgroundClassNameIdx);
     this.setState({
       backgroundClassName: classNames[(currBackgroundClassNameIdx + 1) % classNames.length]
     });
@@ -31,7 +46,6 @@ export default class App extends React.Component {
 
   onFontIconClick(e) {
     var currFontFamilyIdx = fontFamilies.indexOf(this.state.textStyle['fontFamily']);
-    console.log('toggling font to ' + currFontFamilyIdx);
     this.setState({
       textStyle: {
         fontFamily: fontFamilies[(currFontFamilyIdx + 1) % fontFamilies.length]
@@ -45,8 +59,13 @@ export default class App extends React.Component {
     });
   }
 
+  onShake(e) {
+    this.setState({
+      strategyIdx: Math.floor(Math.random() * strategies.length)
+    });
+  }
+
   render() {
-    console.log(this.state.backgroundClassName)
     return (<section className={this.sectionClassNames.concat(this.state.backgroundClassName).join(' ')}>
       <div className={'hero-body'}>
         <div className={'container'}>
